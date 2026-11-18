@@ -18,22 +18,28 @@ The website requests **public, published-only** content from:
 
 `https://crm-function-app-5d4de511071d.herokuapp.com/server/resident_function/api/community-sites/cottonwood-creek`
 
-This API endpoint is **not automatically installed** by publishing the site. Until it is implemented, the homepage displays a clear content-unavailable message instead of mock news or invented event details.
+The Clubhouse Links backend repository now contains the read-only
+`getCottonwoodCreekPublicContent` controller and route.
 
-A future API response should resemble:
+The website uses the returned content as follows:
 
-```json
-{
-  "site": {"hero_text": "Welcome", "about_text": "About our community", "contact_url": "https://clubhouselinks.com"},
-  "announcements": [{"title": "Community update", "description": "Details", "published_at": "2026-11-17T00:00:00Z"}],
-  "events": [{"title": "Neighborhood gathering", "description": "Details", "address": "Richardson, Texas", "starts_at": "2026-12-01T17:00:00Z"}],
-  "resources": [{"label": "Community resources", "url": "https://example.org"}]
-}
-```
+- **Community news** → published HOA announcements for the matched neighborhood.
+- **Neighborhood events** → published `hoa_events` rows (including event photos).
+- **Helpful resources / Community vendors** → active `hoa_vendors` rows
+  (vendor names, categories, descriptions, logos, and public websites).
 
-**Do not add credentials to this public GitHub Pages repository.** Authenticate HOA board editing only in the Clubhouse Links backend, using a verified login token and a server-side check that the user belongs to Cottonwood Creek and is an approved board director. Never trust a resident ID sent by the website as authorization.
+The homepage tiles scroll to their respective live lists. The public website
+does not authenticate as a resident, does not publish drafts, and does not
+provide board editing functionality.
 
-Board editing, database migration, event schema verification, and backend API deployment are separate work and are **not yet live**.
+**Deployment checks:** confirm the backend controller and route are deployed on
+Heroku, that browser CORS is allowed for the GitHub Pages origin, and that the
+`hoa_neighborhoods` record maps uniquely to Cottonwood Creek. The controller
+deliberately returns 404/409 rather than guessing another neighborhood ID.
+The endpoint was not verified live during the website edit.
+
+No credentials belong in this public GitHub Pages repository. Board publishing
+remains restricted to authenticated Clubhouse Links interfaces.
 
 ## Original design
 

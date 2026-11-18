@@ -28,6 +28,33 @@ function renderCard(item, type) {
     ${link ? `<p><a class="button ghost" href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">Learn more</a></p>` : ''}
   </article>`;
 }
+// Announcements are published in PostgreSQL and supplied by the public community API.
+// Keep this renderer data-driven so new announcements require no website code changes.
+function renderAnnouncementCard(item) {
+  const stampValue = item.published_at || item.created_at;
+  const stampDate = stampValue ? new Date(stampValue) : null;
+  const stamp = stampDate && !Number.isNaN(stampDate.getTime())
+    ? stampDate.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })
+    : '';
+  const image = safeUrl(item.image_url);
+  const link = safeUrl(item.url);
+  const isAppStore = link && new URL(link).hostname === 'apps.apple.com';
+  const title = escapeHtml(item.title || 'Community announcement');
+  const body = escapeHtml(item.description || item.body || '');
+  const imageHtml = image?.startsWith('https://')
+    ? `<div class="announcement-media"><img class="announcement-image" src="${escapeHtml(image)}" alt="${title === 'Community announcement' ? 'Community announcement' : title}" loading="lazy"></div>`
+    : '';
+  return `<article class="announcement-card">
+    ${imageHtml}
+    <div class="announcement-copy">
+      <span class="meta">Community announcement ${escapeHtml(stamp)}</span>
+      <h3>${title}</h3>
+      <p class="announcement-body">${body}</p>
+      ${link ? `<a class="announcement-cta" href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">${isAppStore ? 'iPhone App Store' : 'Learn more'} <span aria-hidden="true">↗</span></a>` : ''}
+    </div>
+  </article>`;
+}
+
 function renderVendors(items) {
   if (!items.length) return '<p class="muted">No active neighborhood vendors are listed yet.</p>';
   return items.map((item) => {
@@ -51,7 +78,7 @@ function applyContent(data) {
   const announcements = Array.isArray(data.announcements) ? data.announcements : [];
   const events = Array.isArray(data.events) ? data.events : [];
   const vendors = Array.isArray(data.vendors) ? data.vendors : [];
-  $('#announcements').innerHTML = announcements.length ? announcements.map((x) => renderCard(x, 'Community update')).join('') : '<p class="muted">No announcements published yet.</p>';
+  $('#announcements').innerHTML = announcements.length ? announcements.map(renderAnnouncementCard).join('') : '<p class="muted">No announcements published yet.</p>';
   $('#events-list').innerHTML = events.length ? events.map((x) => renderCard(x, 'Event')).join('') : '<p class="muted">No community events published yet.</p>';
   $('#resource-list').innerHTML = renderVendors(vendors);
 }

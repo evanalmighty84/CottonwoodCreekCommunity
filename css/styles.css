@@ -143,7 +143,7 @@ h1 em { font-style: normal; color: var(--primary); }
   display: grid; gap: 20px;
 }
 .features { grid-template-columns: repeat(3, minmax(0,1fr)); margin-top: 34px; }
-.features article, .cards article, .resources a, #board {
+.features .feature-link, .cards article, .resources a, .resources .vendor-card, #board {
   border-radius: 24px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); padding: 24px;
   box-shadow: 0 20px 40px rgba(0,0,0,.12);
 }
@@ -152,7 +152,7 @@ h1 em { font-style: normal; color: var(--primary); }
 .cards article h3 { font-size: 1.28rem; }
 .meta { display: inline-block; margin-bottom: 10px; font-size: .78rem; letter-spacing: .14em; color: #b9c4e4; text-transform: uppercase; }
 .resources { grid-template-columns: repeat(3, minmax(0,1fr)); }
-.resources a:hover, .cards article:hover, .features article:hover, #board:hover { transform: translateY(-2px); transition: transform .18s ease; }
+.resources a:hover, .cards article:hover, .features .feature-link:hover, #board:hover { transform: translateY(-2px); transition: transform .18s ease; }
 .contact { grid-template-columns: minmax(0,1.15fr) minmax(280px,.85fr); align-items: start; }
 footer { border-top: 1px solid rgba(255,255,255,.06); padding: 26px 0 34px; color: #c0cae8; }
 .foot { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
@@ -180,3 +180,19 @@ footer { border-top: 1px solid rgba(255,255,255,.06); padding: 26px 0 34px; colo
   .button { width: 100%; }
   .actions { display: grid; }
 }
+
+/* The three feature tiles are accessible links into the live community feeds. */
+.features .feature-link { display: block; color: inherit; text-decoration: none; }
+.features .feature-link h3 { color: #f2f4ff; }
+.features .feature-link:focus-visible { outline: 3px solid var(--primary); outline-offset: 4px; }
+.feature-action { display: inline-block; margin-top: 14px; color: var(--primary); font-weight: 700; }
+section[id] { scroll-margin-top: 88px; }
+.cards .event-image, .cards .announcement-image {
+  width: 100%; height: 170px; border-radius: 16px; object-fit: cover; margin-bottom: 14px;
+}
+.resources .vendor-card { min-width: 0; }
+.resources .vendor-card h3 { margin: 0 0 9px; font-size: 1.12rem; }
+.resources .vendor-logo { width: 72px; height: 72px; object-fit: contain; border-radius: 12px;
+  background: rgba(255,255,255,.92); padding: 5px; margin-bottom: 12px; }
+.resources .vendor-category { color: var(--primary); font-size: .87rem; margin: 0 0 9px; }
+.resources .vendor-card .vendor-site { display: inline-block; margin-top: 8px; }

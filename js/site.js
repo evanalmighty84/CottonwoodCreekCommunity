@@ -1,7 +1,7 @@
 
 'use strict';
 const API_ORIGIN = window.COTTONWOOD_API_ORIGIN || 'https://crm-function-app-5d4de511071d.herokuapp.com';
-const API_PATH = '/server/resident_function/api/community-sites/cottonwood-creek';
+const API_PATH = '/server/resident_function/api/residents/community-sites/cottonwood-creek';
 // This endpoint returns only public, published HOA content. Never send credentials from GitHub Pages.
 const $ = (s) => document.querySelector(s);
 const escapeHtml = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));

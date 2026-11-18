@@ -1,35 +1,122 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Cottonwood Creek Community Association | Richardson, TX</title>
-<meta name="description" content="Cottonwood Creek Community Association community events, board updates, neighborhood news and resources in Richardson, Texas.">
-<meta name="theme-color" content="#080B24">
-<style>
-:root{font-family:Inter,system-ui,-apple-system,sans-serif;color:#edf3ff;background:#080b24;font-synthesis:none}*{box-sizing:border-box}body{margin:0;line-height:1.6}a{color:inherit}h1,h2,h3{line-height:1.12}h1{font-size:clamp(2.7rem,6.5vw,5.6rem);margin:15px 0}h2{font-size:clamp(1.9rem,4vw,2.8rem)}p{color:#d5dcf3}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}.head{background:#080b24ee;position:sticky;top:0;z-index:2;border-bottom:1px solid #303b67}.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:75px}.brand{text-decoration:none;font-weight:800;font-size:1.05rem;line-height:1.2;display:flex;align-items:center;gap:12px}.brand small{display:block;font-size:.73rem;color:#aeb9dd;font-weight:500}.mark{background:linear-gradient(135deg,#624cf8,#28c3ed);border-radius:14px;padding:12px;font-weight:800}.links{display:flex;gap:23px;align-items:center}.links a{text-decoration:none;font-size:.91rem}.links a:hover{color:#72dcff}.menu{display:none}.hero{padding:100px 0;background:radial-gradient(ellipse at 72% 25%,#26399a 0,transparent 55%),linear-gradient(135deg,#080b24,#142654)}.hero-grid{display:grid;grid-template-columns:1.4fr .8fr;align-items:center;gap:50px}.eyebrow{text-transform:uppercase;letter-spacing:.19em;color:#6de1ff;font-size:.75rem;font-weight:800}.hero em{font-style:normal;background:linear-gradient(95deg,#7a78ff,#65e7ed);-webkit-background-clip:text;background-clip:text;color:transparent}.intro{font-size:1.2rem;max-width:640px}.actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:27px}.button{display:inline-block;text-decoration:none;background:linear-gradient(105deg,#6250f9,#2d9df8);color:white;padding:13px 22px;border-radius:10px;font-weight:700}.button.secondary{background:#ffffff13;border:1px solid #ffffff55}.hero-card{padding:35px;border:1px solid #6271c377;border-radius:22px;background:linear-gradient(145deg,#233b80aa,#101936);box-shadow:0 25px 70px #0006}.hero-card h2{font-size:2rem}.star{font-size:5rem;color:#60dcee}.section{padding:74px 0}.section.alt{background:#101b3d}.lead{max-width:740px}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:28px}.cards article,.features article,.resource-list a,.board{border:1px solid #384675;background:#18254b;padding:23px;border-radius:16px}.cards h3,.features h3{margin:10px 0}.meta{font-size:.75rem;letter-spacing:.12em;color:#78e1ff;font-weight:800}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}.features article span{font-size:2.3rem;color:#6bdffd}.resource-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:25px}.resource-list a{text-decoration:none}.muted{color:#aeb8db}.contact{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:center}.board{background:#111e42}footer{padding:25px 0;border-top:1px solid #36436e;color:#b5bfdc}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.skip{position:absolute;left:-999px}.skip:focus{left:10px;top:10px;background:white;color:black;z-index:8}.status{padding:12px 0}#announcements article p,#events-list article p{white-space:pre-wrap}@media(max-width:790px){.menu{display:block;background:#223369;border:1px solid #576bb0;color:white;border-radius:8px;padding:10px 15px}.links{display:none;position:absolute;left:0;right:0;top:75px;background:#0b1330;padding:20px;flex-direction:column;align-items:start}.links.open{display:flex}.hero{padding:70px 0}.hero-grid,.contact{grid-template-columns:1fr}.cards,.features{grid-template-columns:1fr}.resource-list{grid-template-columns:1fr}.hero-card{max-width:550px}} 
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080B24">
+  <meta name="description" content="Cottonwood Creek Community Association — neighborhood updates, events, resources and community connections in Richardson, Texas.">
+  <title>Cottonwood Creek Community Association | Richardson, TX</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<header class="head"><div class="wrap nav"><a class="brand" href="./"><span class="mark">CC</span><span>Cottonwood Creek<small>Community Association</small></span></a><button id="menu" class="menu" aria-expanded="false" aria-controls="links">Menu</button><nav class="links" id="links"><a href="#about">Community</a><a href="#updates">News</a><a href="#events">Events</a><a href="#resources">Resources</a><a href="#contact">Contact</a></nav></div></header>
-<main id="main">
-<section class="hero"><div class="wrap hero-grid"><div><p class="eyebrow">Richardson, Texas</p><h1>Where neighbors <em>connect.</em></h1><p id="hero-copy" class="intro">A place to stay informed, celebrate neighborhood events, and help Cottonwood Creek thrive.</p><div class="actions"><a class="button" href="#events">Explore Events</a><a class="button secondary" href="#updates">Community Updates</a></div></div><aside class="hero-card"><p class="eyebrow">Your neighborhood hub</p><h2>Closer community.<br>Better connected.</h2><p>News, events, resources and neighborhood connections in one place.</p><div class="star" aria-hidden="true">✳</div></aside></div></section>
-<section class="wrap section" id="about"><p class="eyebrow">Welcome home</p><h2>Welcome to Cottonwood Creek</h2><p class="lead" id="about-copy">Discover what's happening in our community and connect with the people and projects making a difference.</p><div class="features"><article><span>✦</span><h3>Community news</h3><p>Updates published by the association.</p></article><article><span>▣</span><h3>Neighborhood events</h3><p>Opportunities to gather and celebrate.</p></article><article><span>⌂</span><h3>Helpful resources</h3><p>Community documents and approved links.</p></article></div></section>
-<section class="section alt" id="updates"><div class="wrap"><p class="eyebrow">Stay in the know</p><h2>Latest updates</h2><div class="cards" id="announcements" aria-live="polite"><p class="muted">Loading community updates…</p></div></div></section>
-<section class="section wrap" id="events"><p class="eyebrow">Come together</p><h2>Community events</h2><div class="cards" id="events-list" aria-live="polite"><p class="muted">Loading events…</p></div></section>
-<section class="section alt" id="resources"><div class="wrap"><p class="eyebrow">Quick access</p><h2>Community resources</h2><div class="resource-list" id="resource-list" aria-live="polite"><p class="muted">Loading resources…</p></div></div></section>
-<section class="section wrap contact" id="contact"><div><p class="eyebrow">Get in touch</p><h2>Have a question for the board?</h2><p>Contact the association through its approved channel. Please avoid sharing private account details on a public page.</p><a id="contact-link" class="button" href="https://apps.apple.com/us/app/clubhouse-links/id6790003233">Open Clubhouse Links</a></div><aside class="board"><h3>Board member?</h3><p>Website announcements and resources are designed to be maintained in the authenticated Clubhouse Links HOA dashboard.</p><p class="muted">The public website never accepts board credentials or editing requests.</p></aside></section>
-</main><footer><div class="wrap foot"><span>© <span id="year"></span> Cottonwood Creek Community Association</span><span>Community technology by <a href="https://clubhouselinks.com/">Clubhouse Links</a></span></div></footer>
-<script>
-'use strict';
-// Public read-only API. The associated backend routes and database migration must be deployed separately.
-const API_ORIGIN=window.COTTONWOOD_API_ORIGIN||'https://crm-function-app-5d4de511071d.herokuapp.com';
-const API_PATH='/server/resident_function/api/community-sites/cottonwood-creek';
-const el=s=>document.querySelector(s);
-const escapeHtml=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function safeUrl(v){try{const u=new URL(v);return ['https:','mailto:'].includes(u.protocol)?u.href:null}catch{return null}}
-function card(item,event){const date=item.starts_at||item.published_at;const stamp=date?new Date(date).toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'}):'';const link=safeUrl(item.url);return '<article><span class="meta">'+(event?'EVENT':'COMMUNITY UPDATE')+' '+escapeHtml(stamp)+'</span><h3>'+escapeHtml(item.title)+'</h3><p>'+escapeHtml(item.description||'')+'</p>'+(event&&item.address?'<p><strong>Location:</strong> '+escapeHtml(item.address)+'</p>':'')+(link?'<a href="'+escapeHtml(link)+'" target="_blank" rel="noopener noreferrer">More information</a>':'')+'</article>'}
-function render(data){const site=data.site||{};if(site.hero_text)el('#hero-copy').textContent=site.hero_text;if(site.about_text)el('#about-copy').textContent=site.about_text;const news=Array.isArray(data.announcements)?data.announcements:[];const events=Array.isArray(data.events)?data.events:[];const res=Array.isArray(data.resources)?data.resources:[];el('#announcements').innerHTML=news.length?news.map(x=>card(x,false)).join(''):'<p class="muted">No announcements published yet.</p>';el('#events-list').innerHTML=events.length?events.map(x=>card(x,true)).join(''):'<p class="muted">No upcoming events published yet.</p>';const links=res.filter(x=>safeUrl(x.url));el('#resource-list').innerHTML=links.length?links.map(x=>'<a href="'+escapeHtml(safeUrl(x.url))+'" target="_blank" rel="noopener noreferrer">'+escapeHtml(x.label)+' ↗</a>').join(''):'<p class="muted">Resources will appear here when published.</p>';const contact=safeUrl(site.contact_url);if(contact)el('#contact-link').href=contact}
-document.addEventListener('DOMContentLoaded',async()=>{el('#year').textContent=new Date().getFullYear();el('#menu').addEventListener('click',()=>{let open=el('#links').classList.toggle('open');el('#menu').setAttribute('aria-expanded',String(open))});try{const controller=new AbortController();const t=setTimeout(()=>controller.abort(),9000);let response;try{response=await fetch(API_ORIGIN+API_PATH,{headers:{Accept:'application/json'},signal:controller.signal})}finally{clearTimeout(t)}if(!response.ok)throw Error('API '+response.status);render(await response.json())}catch(error){console.warn('Community content not connected:',error);el('#announcements').innerHTML='<p class="muted">Community updates will appear here when the Clubhouse Links content API is connected.</p>';el('#events-list').innerHTML='<p class="muted">Events will appear here once the community API is connected.</p>';el('#resource-list').innerHTML='<p class="muted">Community resources will appear here once published.</p>'}})
-</script>
-</body></html>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-head">
+    <div class="wrap nav">
+      <a class="brand" href="./" aria-label="Cottonwood Creek home">
+        <span class="brand-icon">CC</span>
+        <span>Cottonwood Creek <small>Community Association</small></span>
+      </a>
+      <button id="menu" class="menu" aria-expanded="false" aria-controls="links">Menu</button>
+      <nav id="links">
+        <a href="#about">Our Community</a>
+        <a href="#updates">News</a>
+        <a href="#events">Events</a>
+        <a href="#resources">Resources</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-cta" href="#board">Board Portal</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero-media" aria-hidden="true"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="wrap hero-grid">
+        <div class="hero-copy-panel">
+          <p class="eyebrow">RICHARDSON, TEXAS</p>
+          <h1>Where neighbors <em>connect.</em></h1>
+          <p id="hero-copy" class="intro">A welcoming place to stay informed, celebrate neighborhood events, and help Cottonwood Creek thrive.</p>
+          <div class="actions">
+            <a class="button primary" href="#events">Explore Events</a>
+            <a class="button ghost" href="#updates">Community Updates</a>
+          </div>
+          <div class="hero-tagline">
+            <span class="tag-pill">Community news</span>
+            <span class="tag-pill">Neighborhood events</span>
+            <span class="tag-pill">Board resources</span>
+          </div>
+        </div>
+        <aside class="hero-card">
+          <div class="photo-frame">
+            <img src="assets/cottonwood-creek-entrance.jpg" alt="Cottonwood Creek Estates entrance sign">
+            <div class="photo-caption">
+              <span class="photo-label">Neighborhood landmark</span>
+              <strong>Cottonwood Creek Estates</strong>
+            </div>
+          </div>
+          <div class="card-copy">
+            <span class="eyebrow">YOUR NEIGHBORHOOD HUB</span>
+            <h2>Closer community.<br>Better connected.</h2>
+            <p>News, events, resources and neighborhood connections in one place, with updates designed to flow from Clubhouse Links.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="wrap section" id="about">
+      <p class="eyebrow">WELCOME HOME</p>
+      <h2>Welcome to Cottonwood Creek</h2>
+      <p id="about-copy" class="section-intro">Find what's happening in our community, connect with neighbors, and keep up with the people and projects making a difference.</p>
+      <div class="features">
+        <article><span class="feature-icon">✦</span><h3>Community news</h3><p>Important announcements and updates from your association.</p></article>
+        <article><span class="feature-icon">▣</span><h3>Neighborhood events</h3><p>Discover upcoming opportunities to meet and celebrate.</p></article>
+        <article><span class="feature-icon">⌂</span><h3>Helpful resources</h3><p>Find community documents, contacts, and helpful links.</p></article>
+      </div>
+    </section>
+
+    <section class="alt section" id="updates">
+      <div class="wrap">
+        <div class="section-head"><div><p class="eyebrow">STAY IN THE KNOW</p><h2>Latest updates</h2></div></div>
+        <div id="announcements" class="cards" aria-live="polite"><p class="muted">Loading community updates…</p></div>
+      </div>
+    </section>
+
+    <section class="wrap section" id="events">
+      <div class="section-head"><div><p class="eyebrow">COME TOGETHER</p><h2>Community events</h2></div></div>
+      <div id="events-list" class="cards" aria-live="polite"><p class="muted">Loading events…</p></div>
+    </section>
+
+    <section class="alt section" id="resources">
+      <div class="wrap">
+        <p class="eyebrow">QUICK ACCESS</p>
+        <h2>Community resources</h2>
+        <div id="resource-list" class="resources" aria-live="polite"><p class="muted">Loading resources…</p></div>
+      </div>
+    </section>
+
+    <section class="wrap section contact" id="contact">
+      <div>
+        <p class="eyebrow">GET IN TOUCH</p>
+        <h2>Have a question for the board?</h2>
+        <p>Reach out through the approved community contact channel. Do not include private account details in public messages.</p>
+        <a id="contact-link" class="button primary" href="https://apps.apple.com/us/app/clubhouse-links/id6790003233" rel="noopener noreferrer">Open Clubhouse Links</a>
+      </div>
+      <aside id="board">
+        <h3>Board member?</h3>
+        <p>Use the secure Clubhouse Links HOA board account to manage news, events, and this website's content.</p>
+        <p class="muted small">Publishing controls are available through the authenticated backend integration. This public site never stores board credentials.</p>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <span>© <span id="year"></span> Cottonwood Creek Community Association</span>
+      <span>Community technology by <a href="https://clubhouselinks.com/">Clubhouse Links</a></span>
+    </div>
+  </footer>
+
+  <script src="js/site.js" defer></script>
+</body>
+</html>

@@ -20,6 +20,7 @@ function renderCard(item, type) {
   const image = safeUrl(item.image_url);
   const photo = image?.startsWith('https://') ? `<img class="${type === 'Event' ? 'event-image' : 'announcement-image'}" src="${escapeHtml(image)}" alt="" loading="lazy">` : '';
   return `<article>
+    ${photo}
     <span class="meta">${type} ${escapeHtml(stamp)}</span>
     <h3>${escapeHtml(item.title || '')}</h3>
     <p>${escapeHtml(item.description || '')}</p>
@@ -55,8 +56,8 @@ function applyContent(data) {
   $('#resource-list').innerHTML = renderVendors(vendors);
 }
 function setFallback() {
-  $('#announcements').innerHTML = '<div class="error-callout"><strong>Community updates will appear here.</strong><p>This public site is ready for live content once the Clubhouse Links board publishing endpoint is connected.</p></div>';
-  $('#events-list').innerHTML = '<div class="error-callout"><strong>Event publishing will appear here.</strong><p>Board-managed neighborhood events will show once the public read-only feed is available.</p></div>';
+  $('#announcements').innerHTML = '<div class="error-callout"><strong>Community updates will appear here.</strong><p>The community feed is temporarily unavailable. Please try again later.</p></div>';
+  $('#events-list').innerHTML = '<div class="error-callout"><strong>Event publishing will appear here.</strong><p>The published events feed is temporarily unavailable. Please try again later.</p></div>';
   $('#resource-list').innerHTML = '<div class="error-callout"><strong>Community vendor directory is unavailable.</strong><p>Try again later for approved neighborhood providers.</p></div>';
 }
 document.addEventListener('DOMContentLoaded', async () => {

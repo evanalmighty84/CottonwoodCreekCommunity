@@ -240,12 +240,13 @@ section[id] { scroll-margin-top: 88px; }
 }
 .store-link:hover { transform: translateY(-2px); border-color: #a9dfa8; }
 .store-link:focus-visible { outline: 3px solid var(--primary); outline-offset: 4px; }
-.store-link-ios { background: #1c4d35; }
-.store-link-android { background: #203f31; }
+.store-link-ios { background: linear-gradient(115deg, #0c79ec, #267fe5); border-color: rgba(143,202,255,.45); }
+.store-link-android { background: linear-gradient(115deg, #275c3b, #347f55); border-color: rgba(168,225,164,.4); }
 .store-symbol { width: 30px; font-size: 1.65rem; color: #beeab8; text-align: center; }
 .store-link span:nth-child(2) { display: flex; flex-direction: column; line-height: 1.24; }
 .store-link small { font-size: .73rem; color: #d4dfd1; }
 .store-link strong { font-size: 1.12rem; }
+.store-link-ios .store-symbol, .store-link-ios .store-arrow { color: #fff; }
 .store-arrow { margin-left: 12px; color: #bfeab9; }
 .app-platform-note { margin: 15px 0 0; color: #c9d9c6; font-size: .84rem; }
 .contact { padding-block: 74px; }

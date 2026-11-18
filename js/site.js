@@ -2,6 +2,7 @@
 'use strict';
 const API_ORIGIN = window.COTTONWOOD_API_ORIGIN || 'https://crm-function-app-5d4de511071d.herokuapp.com';
 const API_PATH = '/server/resident_function/api/community-sites/cottonwood-creek';
+// This endpoint returns only public, published HOA content. Never send credentials from GitHub Pages.
 const $ = (s) => document.querySelector(s);
 const escapeHtml = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const safeUrl = (v) => {
@@ -16,6 +17,8 @@ function renderCard(item, type) {
   const stampValue = item.starts_at || item.published_at || item.updated_at;
   const stamp = stampValue ? new Date(stampValue).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }) : '';
   const link = safeUrl(item.url);
+  const image = safeUrl(item.image_url);
+  const photo = image?.startsWith('https://') ? `<img class="${type === 'Event' ? 'event-image' : 'announcement-image'}" src="${escapeHtml(image)}" alt="" loading="lazy">` : '';
   return `<article>
     <span class="meta">${type} ${escapeHtml(stamp)}</span>
     <h3>${escapeHtml(item.title || '')}</h3>
@@ -24,12 +27,19 @@ function renderCard(item, type) {
     ${link ? `<p><a class="button ghost" href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">Learn more</a></p>` : ''}
   </article>`;
 }
-function renderResources(items) {
-  if (!items.length) return '<p class="muted">No resources published yet.</p>';
+function renderVendors(items) {
+  if (!items.length) return '<p class="muted">No active neighborhood vendors are listed yet.</p>';
   return items.map((item) => {
-    const link = safeUrl(item.url);
-    const inner = `<strong>${escapeHtml(item.label || item.title || 'Resource')}</strong><p>${escapeHtml(item.description || '')}</p>`;
-    return link ? `<a href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">${inner}</a>` : `<div class="error-callout">${inner}</div>`;
+    const name = item.title || item.company_name || 'Community vendor';
+    const website = safeUrl(item.url);
+    const logo = safeUrl(item.logo_url);
+    return `<article class="vendor-card">
+      ${logo?.startsWith('https://') ? `<img class="vendor-logo" src="${escapeHtml(logo)}" alt="" loading="lazy">` : ''}
+      <h3>${escapeHtml(name)}</h3>
+      ${item.category ? `<p class="vendor-category">${escapeHtml(item.category)}</p>` : ''}
+      ${item.description ? `<p>${escapeHtml(item.description)}</p>` : ''}
+      ${website?.startsWith('https://') ? `<a class="vendor-site" href="${escapeHtml(website)}" target="_blank" rel="noopener noreferrer">Visit vendor website →</a>` : ''}
+    </article>`;
   }).join('');
 }
 function applyContent(data) {
@@ -39,15 +49,15 @@ function applyContent(data) {
   if (site.contact_url && safeUrl(site.contact_url)) $('#contact-link').href = safeUrl(site.contact_url);
   const announcements = Array.isArray(data.announcements) ? data.announcements : [];
   const events = Array.isArray(data.events) ? data.events : [];
-  const resources = Array.isArray(data.resources) ? data.resources : [];
+  const vendors = Array.isArray(data.vendors) ? data.vendors : [];
   $('#announcements').innerHTML = announcements.length ? announcements.map((x) => renderCard(x, 'Community update')).join('') : '<p class="muted">No announcements published yet.</p>';
   $('#events-list').innerHTML = events.length ? events.map((x) => renderCard(x, 'Event')).join('') : '<p class="muted">No community events published yet.</p>';
-  $('#resource-list').innerHTML = renderResources(resources);
+  $('#resource-list').innerHTML = renderVendors(vendors);
 }
 function setFallback() {
   $('#announcements').innerHTML = '<div class="error-callout"><strong>Community updates will appear here.</strong><p>This public site is ready for live content once the Clubhouse Links board publishing endpoint is connected.</p></div>';
   $('#events-list').innerHTML = '<div class="error-callout"><strong>Event publishing will appear here.</strong><p>Board-managed neighborhood events will show once the public read-only feed is available.</p></div>';
-  $('#resource-list').innerHTML = '<div class="error-callout"><strong>Resources will appear here.</strong><p>Community links and documents can be published from the Clubhouse Links backend.</p></div>';
+  $('#resource-list').innerHTML = '<div class="error-callout"><strong>Community vendor directory is unavailable.</strong><p>Try again later for approved neighborhood providers.</p></div>';
 }
 document.addEventListener('DOMContentLoaded', async () => {
   $('#year').textContent = String(new Date().getFullYear());

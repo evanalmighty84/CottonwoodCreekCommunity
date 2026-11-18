@@ -16,7 +16,7 @@ The website is static and works without an app build step. The homepage, respons
 
 The website requests **public, published-only** content from:
 
-`https://crm-function-app-5d4de511071d.herokuapp.com/server/resident_function/api/community-sites/cottonwood-creek`
+`https://crm-function-app-5d4de511071d.herokuapp.com/server/resident_function/api/residents/community-sites/cottonwood-creek`
 
 The Clubhouse Links backend repository now contains the read-only
 `getCottonwoodCreekPublicContent` controller and route.
